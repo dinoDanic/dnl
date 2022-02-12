@@ -10,6 +10,7 @@ const Dashboard: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>hello</div>
+      <button>increment</button>
     </>
   );
 };

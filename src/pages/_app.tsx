@@ -1,12 +1,16 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Header } from "modules/header";
+import { Provider } from "react-redux";
+import { store } from "redux/store";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Header />
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }
