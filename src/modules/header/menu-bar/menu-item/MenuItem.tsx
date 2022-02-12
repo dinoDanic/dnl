@@ -8,10 +8,11 @@ interface menuItemProps {
 }
 
 const MenuItem: React.FC<menuItemProps> = ({ name, pathname }) => {
-  const isActive = `/${name}` === pathname;
+  const nameAsLink = `/${name}`;
+  const isActive = nameAsLink === pathname;
 
   return (
-    <Link href="">
+    <Link passHref href={nameAsLink}>
       <Li active={isActive}>{name}</Li>
     </Link>
   );

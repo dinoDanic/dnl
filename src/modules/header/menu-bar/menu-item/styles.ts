@@ -7,26 +7,27 @@ interface LiProps {
 
 const liDefaulStyle = (theme: DefaultTheme) => `
   padding: ${theme.sizes.padding.md};
-  margin-right: ${theme.sizes.margin.md};
   border-bottom: 2px solid transparent;
   transition: 0.2s ease-out;
   cursor: pointer;
-  &::first-letter {
+  &:first-letter {
     text-transform: capitalize;
-  }
+  };
   &:hover {
-    ${activeStyle};
-  }
+    background-color: ${theme.colors.primaryLight};
+    color: ${theme.colors.primary};
+    box-shadow: 0px 2px;
+  };
 `;
 
 const activeStyle = css`
   background-color: ${({ theme }) => theme.colors.primaryLight};
   color: ${({ theme }) => theme.colors.primary};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
+  box-shadow: 0px 2px;
 `;
 
 export const Li = styled.li<LiProps>`
-  ${({ theme }) => liDefaulStyle(theme)}
+  ${({ theme }) => liDefaulStyle(theme)};
   ${picoloLight};
   ${({ active }) => active && activeStyle};
 `;

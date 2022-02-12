@@ -6,6 +6,7 @@ import { lightTheme } from "styles/theme/theme";
 import GlobalStyle from "styles/global";
 
 import Header from "modules/header";
+import { MyAppC } from "./_styles";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={lightTheme}>
           <GlobalStyle />
           <Header />
-          <Component {...pageProps} />
+          <MyAppC>
+            <Component {...pageProps} />
+          </MyAppC>
         </ThemeProvider>
       </Provider>
     </>
