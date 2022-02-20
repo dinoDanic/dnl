@@ -8,17 +8,32 @@ import GlobalStyle from "styles/global";
 import Header from "modules/header";
 import { MyAppC } from "./_styles";
 
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+} from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: "http://localhost:3005/graphql",
+  cache: new InMemoryCache(),
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Provider store={store}>
-        <ThemeProvider theme={lightTheme}>
-          <GlobalStyle />
-          <Header />
-          <MyAppC>
-            <Component {...pageProps} />
-          </MyAppC>
-        </ThemeProvider>
+        <ApolloProvider client={client}>
+          <ThemeProvider theme={lightTheme}>
+            <GlobalStyle />
+            <Header />
+            <MyAppC>
+              <Component {...pageProps} />
+            </MyAppC>
+          </ThemeProvider>
+        </ApolloProvider>
       </Provider>
     </>
   );

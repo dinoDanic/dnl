@@ -1,7 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useQuery, gql } from "@apollo/client";
 
 const Home: NextPage = () => {
+  const GET_ITEMS = gql`
+    query {
+      items {
+        id
+        title
+        description
+        artist {
+          firstName
+          lastName
+          email
+          createdAt
+        }
+      }
+    }
+  `;
+  useQuery(GET_ITEMS, {
+    onCompleted: (data) => console.log(data),
+  });
   return (
     <>
       <Head>

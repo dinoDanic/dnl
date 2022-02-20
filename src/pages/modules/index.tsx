@@ -1,20 +1,15 @@
-import React from "react";
-import { moduleList } from "./list";
-import { IconC, Name, Module, ModulesC } from "./styles";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Module } from "shared/ui";
+import { modules } from "./modules";
+import { ModulesC } from "./styles";
 
 const Modules = () => {
   return (
     <ModulesC>
-      {moduleList.map((module) => {
+      {modules.map((module) => {
         const { id, Icon, name } = module;
-        return (
-          <Module key={id}>
-            <IconC>
-              <Icon size={60} />
-            </IconC>
-            <Name>{name}</Name>
-          </Module>
-        );
+        return <Module name={name} Icon={Icon} key={id} />;
       })}
     </ModulesC>
   );
