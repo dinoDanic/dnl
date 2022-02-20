@@ -1,5 +1,5 @@
-export type productType = {
-  name: String;
-  code: String;
-  id: String;
+export type ProductType = {
+  name: string;
+  code: string;
+  id: string;
 };
