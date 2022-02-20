@@ -1,18 +1,20 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { mainModules } from "modules/register";
 import { Module } from "shared/ui";
-import { modules } from "./modules";
-import { ModulesC } from "./styles";
+import styled from "styled-components";
 
 const Modules = () => {
   return (
     <ModulesC>
-      {modules.map((module) => {
+      {mainModules.map((module) => {
         const { id, Icon, name } = module;
         return <Module name={name} Icon={Icon} key={id} />;
       })}
     </ModulesC>
   );
 };
+
+const ModulesC = styled.div`
+  display: flex;
+`;
 
 export default Modules;

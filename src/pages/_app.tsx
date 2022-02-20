@@ -4,8 +4,7 @@ import { store } from "redux/store";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "styles/theme/theme";
 import GlobalStyle from "styles/global";
-
-import Header from "modules/header";
+import Header from "components/header";
 import { MyAppC } from "./_styles";
 
 import {
