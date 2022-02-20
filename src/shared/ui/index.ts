@@ -1,1 +1,1 @@
-export * from "./render-module";
+export * from "./Box";

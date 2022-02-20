@@ -1,7 +1,12 @@
 import React from "react";
+import { Box } from "shared/ui";
 
 const New = () => {
-  return <div>New</div>;
+  return (
+    <>
+      <Box> hello</Box>
+    </>
+  );
 };
 
 export default New;

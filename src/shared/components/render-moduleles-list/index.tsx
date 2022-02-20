@@ -1,6 +1,6 @@
-import { RenderModule } from "shared/ui";
 import styled from "styled-components";
 import { ModuleType } from "types/module";
+import { RenderModule } from "../render-module";
 
 type ModulesListProps = {
   moduleList: ModuleType[];
