@@ -15,5 +15,11 @@ const GlobalStyle = createGlobalStyle`
   li {
     list-style: none;
   }
+  h3 {
+    margin-bottom: ${({ theme }) => theme.sizes.margin.md};
+  }
+  h5 {
+    font-weight: normal;
+  }
 `;
 export default GlobalStyle;

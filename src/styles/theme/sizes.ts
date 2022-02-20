@@ -19,19 +19,19 @@ export interface sizesI {
 
 export const sizes: sizesI = {
   padding: {
-    xs: "",
-    sm: "",
+    xs: "4px",
+    sm: "6px",
     md: "12px",
     lg: "24px",
     xl: "36px",
     xxl: "68px",
   },
   margin: {
-    xs: "",
-    sm: "",
+    xs: "4px",
+    sm: "6px",
     md: "12px",
-    lg: "",
-    xl: "",
-    xxl: "",
+    lg: "24px",
+    xl: "36px",
+    xxl: "68px",
   },
 };
