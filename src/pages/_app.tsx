@@ -9,7 +9,7 @@ import GlobalStyle from "styles/global";
 import { Header } from "modules/header";
 
 const client = new ApolloClient({
-  uri: "http://localhost:3005/graphql",
+  uri: "https://dnl-backend.herokuapp.com/",
   cache: new InMemoryCache(),
 });
 
