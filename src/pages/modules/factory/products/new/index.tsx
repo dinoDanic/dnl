@@ -6,12 +6,16 @@ import { Box, Button, Form, Input, Title } from "shared/ui";
 const New = () => {
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
+  const [ean, setEan] = useState("");
+  const [weight, setWeight] = useState<number>(0);
 
   const [createProduct] = useMutation(CREATE_PRODUCT, {
     variables: {
       input: {
         code,
         name,
+        weight,
+        eanCode: ean,
       },
     },
   });
@@ -44,6 +48,19 @@ const New = () => {
             label="product name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+          />
+          <Input
+            placeholder="EAN"
+            label="EAN"
+            value={ean}
+            onChange={(e) => setEan(e.target.value)}
+          />
+          <Input
+            type="number"
+            placeholder="weight"
+            label="weight"
+            value={weight}
+            onChange={(e) => setWeight(parseInt(e.target.value))}
           />
           <Button>Send</Button>
         </Form>

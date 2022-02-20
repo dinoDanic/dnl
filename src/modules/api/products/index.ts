@@ -7,6 +7,8 @@ export const GET_PRODUCTS = gql`
       code
       id
       name
+      eanCode
+      weight
     }
   }
 `;
