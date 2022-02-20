@@ -1,20 +1,8 @@
 import { mainModules } from "modules-registration";
-import { Module } from "shared/ui";
-import styled from "styled-components";
+import { RenderModulesList } from "shared/components";
 
 const Modules = () => {
-  return (
-    <ModulesC>
-      {mainModules.map((module) => {
-        const { id, Icon, name } = module;
-        return <Module name={name} Icon={Icon} key={id} />;
-      })}
-    </ModulesC>
-  );
+  return <RenderModulesList moduleList={mainModules} />;
 };
-
-const ModulesC = styled.div`
-  display: flex;
-`;
 
 export default Modules;

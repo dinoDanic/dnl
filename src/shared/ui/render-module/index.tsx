@@ -3,15 +3,20 @@ import { useRouter } from "next/router";
 import { IconType } from "react-icons";
 import { IconC, ModuleC, Name } from "./styles";
 
-type ModuleProps = {
+type RenderModuleProps = {
   Icon: IconType;
-  name: String;
+  name: string;
+  link: string;
 };
 
-export const Module: React.FC<ModuleProps> = ({ Icon, name }) => {
+export const RenderModule: React.FC<RenderModuleProps> = ({
+  Icon,
+  name,
+  link,
+}) => {
   const { route } = useRouter();
   return (
-    <Link href={`${route}/${name}`} passHref>
+    <Link href={`${route}/${link}`} passHref>
       <ModuleC>
         <IconC>
           <Icon size={60} />

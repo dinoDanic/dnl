@@ -3,10 +3,10 @@ import { Provider } from "react-redux";
 import { store } from "redux/store";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "styles/theme/theme";
-import GlobalStyle from "styles/global";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { Header } from "modules";
 import { AppContainer } from "shared/components";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import GlobalStyle from "styles/global";
+import { Header } from "modules/header";
 
 const client = new ApolloClient({
   uri: "http://localhost:3005/graphql",

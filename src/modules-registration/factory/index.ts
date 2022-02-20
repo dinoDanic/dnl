@@ -1,5 +1,6 @@
-import { FcCloseUpMode } from "react-icons/fc";
+import { FcCloseUpMode, FcAddImage, FcStackOfPhotos } from "react-icons/fc";
+import { ModuleType } from "types/module";
 
-export const factoryModules = [
-  { name: "products", Icon: FcCloseUpMode, id: 0 },
+export const factoryModules: ModuleType[] = [
+  { name: "products", Icon: FcCloseUpMode, id: 0, link: "products" },
 ];
