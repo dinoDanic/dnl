@@ -1,6 +1,6 @@
+import { factoryModules } from "modules-registration";
 import { Module } from "shared/ui";
 import styled from "styled-components";
-import { factoryModules } from "./modules";
 
 const Factory: React.FC = () => {
   return (

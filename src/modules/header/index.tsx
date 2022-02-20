@@ -1,7 +1,7 @@
 import MenuBar from "./menu-bar/MenuBar";
 import TopBar from "./top-bar/TopBar";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <>
       <TopBar />
@@ -9,5 +9,3 @@ const Header: React.FC = () => {
     </>
   );
 };
-
-export default Header;

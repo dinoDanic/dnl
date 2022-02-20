@@ -4,16 +4,9 @@ import { store } from "redux/store";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "styles/theme/theme";
 import GlobalStyle from "styles/global";
-import Header from "components/header";
-import { MyAppC } from "./_styles";
-
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { Header } from "modules";
+import { AppContainer } from "shared/components";
 
 const client = new ApolloClient({
   uri: "http://localhost:3005/graphql",
@@ -28,9 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
             <Header />
-            <MyAppC>
+            <AppContainer>
               <Component {...pageProps} />
-            </MyAppC>
+            </AppContainer>
           </ThemeProvider>
         </ApolloProvider>
       </Provider>

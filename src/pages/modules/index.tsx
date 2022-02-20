@@ -1,4 +1,4 @@
-import { mainModules } from "modules/register";
+import { mainModules } from "modules-registration";
 import { Module } from "shared/ui";
 import styled from "styled-components";
 
