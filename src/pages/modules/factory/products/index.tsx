@@ -1,4 +1,4 @@
-import { productsModules } from "modules-registration";
+import { productsModules } from "registration";
 import { RenderModulesList } from "shared/components";
 
 const Products = () => {

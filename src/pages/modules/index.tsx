@@ -1,4 +1,4 @@
-import { mainModules } from "modules-registration";
+import { mainModules } from "registration";
 import { RenderModulesList } from "shared/components";
 
 const Modules = () => {

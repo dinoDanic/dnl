@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 type BoxType = {
   children: React.ReactNode;
@@ -9,8 +9,13 @@ export const Box: React.FC<BoxType> = ({ children }) => {
   return <BoxC>{children}</BoxC>;
 };
 
-const BoxC = styled.div`
+export const BoxStyle = css`
   padding: ${({ theme }) => theme.sizes.padding.lg};
+  border: 1px solid ${({ theme }) => theme.colors.quinary};
   border-radius: ${({ theme }) => theme.borders.sm};
-  box-shadow: ${({ theme }) => theme.shadows.default};
+  width: 100%;
+`;
+
+const BoxC = styled.div`
+  ${BoxStyle}
 `;

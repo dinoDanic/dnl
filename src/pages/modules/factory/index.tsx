@@ -1,4 +1,4 @@
-import { factoryModules } from "modules-registration";
+import { factoryModules } from "registration";
 import { RenderModulesList } from "shared/components";
 
 const Factory: React.FC = () => {

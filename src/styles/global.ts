@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
   h3 {
     margin-bottom: ${({ theme }) => theme.sizes.margin.md};
   }
+  h4 {
+    font-weight: normal;
+  }
   h5 {
     font-weight: normal;
   }
