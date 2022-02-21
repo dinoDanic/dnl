@@ -7,9 +7,10 @@ import { AppContainer } from "shared/components";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import GlobalStyle from "styles/global";
 import { Header } from "modules/header";
+console.log(process.env.REACT_APP_API_URL);
 
 const client = new ApolloClient({
-  uri: "https://dnl-backend.herokuapp.com/graphql",
+  uri: process.env.REACT_APP_API_URL,
   cache: new InMemoryCache(),
 });
 
