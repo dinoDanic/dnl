@@ -2,7 +2,7 @@ import React, { FormHTMLAttributes } from "react";
 import styled from "styled-components";
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
-  children: React.ReactChild[];
+  children: JSX.Element | JSX.Element[];
 }
 
 export const Form: React.FC<FormProps> = ({ children, ...other }) => {

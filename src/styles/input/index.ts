@@ -1,0 +1,15 @@
+import { css } from "styled-components";
+
+export const defaultInputStyle = css`
+  padding: ${({ theme }) => theme.sizes.padding.md};
+  width: 100%;
+  border: 2px solid ${({ theme }) => theme.colors.quinary};
+  border-radius: ${({ theme }) => theme.borders.xs};
+  outline: none;
+  &:focus {
+    border: 2px solid ${({ theme }) => theme.colors.success};
+  }
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.quinaryDark};
+  }
+`;

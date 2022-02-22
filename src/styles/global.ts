@@ -20,9 +20,13 @@ const GlobalStyle = createGlobalStyle`
   }
   h4 {
     font-weight: normal;
+    margin-bottom: ${({ theme }) => theme.sizes.margin.md};
   }
   h5 {
     font-weight: normal;
+  }
+  textarea { 
+    font-family: 'Roboto', sans-serif;
   }
 `;
 export default GlobalStyle;
