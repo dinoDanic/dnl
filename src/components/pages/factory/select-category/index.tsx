@@ -1,7 +1,6 @@
-import { InsertPopup } from "components";
+import { InsertPopup, SelectFromMap } from "components/elements";
+import { Button } from "components/inputs";
 import React, { useState } from "react";
-import { SelectFromMap } from "shared/components";
-import { Button, SubTitle, Input, Dropdown } from "shared/ui";
 import styled from "styled-components";
 import { SelectOption } from "types";
 

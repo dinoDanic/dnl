@@ -1,5 +1,5 @@
+import { RenderModulesList } from "components/elements";
 import { mainModules } from "registration";
-import { RenderModulesList } from "shared/components";
 
 const Modules = () => {
   return <RenderModulesList moduleList={mainModules} />;

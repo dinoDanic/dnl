@@ -1,4 +1,4 @@
-import { BoxStyle } from "shared/ui";
+import { BoxStyle } from "components/ui";
 import styled, { DefaultTheme, StyledComponent } from "styled-components";
 
 interface IStepC {

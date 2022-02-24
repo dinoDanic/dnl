@@ -1,7 +1,7 @@
+import { Label } from "components/ui";
 import React from "react";
 import styled from "styled-components";
 import { defaultInputStyle } from "styles/input";
-import { Label } from "..";
 
 interface Props {
   label?: string;

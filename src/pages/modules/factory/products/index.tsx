@@ -1,5 +1,5 @@
+import { RenderModulesList } from "components/elements";
 import { productsModules } from "registration";
-import { RenderModulesList } from "shared/components";
 
 const Products = () => {
   return <RenderModulesList moduleList={productsModules} />;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import styled, { ThemeConsumer, useTheme } from "styled-components";
+import styled from "styled-components";
 import { SelectOption } from "types";
-import { Input } from "..";
 
 interface Props {
   options: SelectOption[];

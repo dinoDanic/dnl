@@ -1,11 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "modules/api";
-import React, { useState } from "react";
 import { ProductType } from "types/product";
 
 const Show = () => {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
-  const [products, setProducts] = useState(data?.products || []);
 
   if (loading) return "loading..";
   if (error) return error.message;

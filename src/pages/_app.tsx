@@ -3,9 +3,9 @@ import { Provider } from "react-redux";
 import { store } from "redux/store";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "styles/theme/theme";
-import { AppContainer } from "shared/components";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import GlobalStyle from "styles/global";
+import { AppContainer } from "components/pages";
 
 console.log(process.env.NEXT_PUBLIC_API_URL);
 

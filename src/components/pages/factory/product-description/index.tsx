@@ -1,5 +1,5 @@
+import { Input, Textarea } from "components/inputs";
 import React from "react";
-import { Input, Textarea } from "shared/ui";
 import styled from "styled-components";
 
 export const ProductDescription = () => {

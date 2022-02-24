@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import { defaultInputStyle } from "styles/input";
 import { BsFillCheckSquareFill } from "react-icons/bs";
-import { Label } from "..";
+import { Label } from "components/ui";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;

@@ -1,5 +1,5 @@
+import { BoxStyle } from "components/ui";
 import React, { useState } from "react";
-import { Box, BoxStyle } from "shared/ui";
 import styled, { DefaultTheme } from "styled-components";
 import { picolo, picoloLight } from "styles/fonts";
 import { SelectOption } from "types";

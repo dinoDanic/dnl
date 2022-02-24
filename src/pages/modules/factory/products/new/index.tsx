@@ -1,12 +1,9 @@
+import { FooterComponent, Stepper } from "components/elements";
+import { Button } from "components/inputs";
+import { ProductDescription, SelectCategory } from "components/pages";
+import { BoxStyle, Title } from "components/ui";
 import { useState } from "react";
-import {
-  FooterComponent,
-  ProductDescription,
-  SelectCategory,
-  Stepper,
-} from "shared/components";
 import { newProductStepper, productsFooterSteps } from "registration";
-import { BoxStyle, Button, Title } from "shared/ui";
 import styled from "styled-components";
 
 const New = () => {

@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { Box } from "shared/ui";
-import styled from "styled-components";
 import { StepperType } from "types";
 import { Name, OrderNumber, StepC, StepperC } from "./styles";
 

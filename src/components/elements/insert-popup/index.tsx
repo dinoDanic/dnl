@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, Input, Title } from "shared/ui";
 import styled from "styled-components";
+import { Input } from "components/inputs";
+import { Title } from "components/ui";
+import { Form } from "..";
 
 interface Props {
   title: string;

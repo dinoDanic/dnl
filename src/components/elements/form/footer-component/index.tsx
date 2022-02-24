@@ -1,5 +1,5 @@
+import { BoxStyle } from "components/ui";
 import React from "react";
-import { BoxStyle, Button } from "shared/ui";
 import styled from "styled-components";
 import { FooterComponentProps } from "types";
 
