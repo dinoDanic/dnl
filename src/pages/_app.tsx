@@ -6,11 +6,11 @@ import { lightTheme } from "styles/theme/theme";
 import { AppContainer } from "shared/components";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import GlobalStyle from "styles/global";
-import { Header } from "modules/header";
+
+console.log(process.env.NEXT_PUBLIC_API_URL);
 
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_API_URL,
-  // uri: "http://localhost:3005/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ApolloProvider client={client}>
           <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
-            <Header />
             <AppContainer>
               <Component {...pageProps} />
             </AppContainer>

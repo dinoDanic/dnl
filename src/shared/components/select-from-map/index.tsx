@@ -1,18 +1,47 @@
-import React from "react";
-import { Box } from "shared/ui";
-import styled from "styled-components";
+import React, { useState } from "react";
+import { Box, BoxStyle } from "shared/ui";
+import styled, { DefaultTheme } from "styled-components";
+import { picolo, picoloLight } from "styles/fonts";
 import { SelectOption } from "types";
 
 interface Props {
   option: SelectOption;
+  isSelected: boolean;
+  onClick: (id: number) => void;
 }
 
-export const SelectFromMap: React.FC<Props> = ({ option }) => {
+interface IContainerSelect {
+  isSelected: boolean;
+}
+
+export const SelectFromMap: React.FC<Props> = ({
+  option,
+  isSelected,
+  onClick,
+}) => {
   return (
-    <Container>
-      <Box>{option.value}</Box>
+    <Container isSelected={isSelected} onClick={() => onClick(option.id)}>
+      {option.value}
     </Container>
   );
 };
 
-const Container = styled.div``;
+const selectedStyle = (theme: DefaultTheme) => `
+border: 1px solid ${theme.colors.success};
+background-color: ${theme.colors.successLight};
+`;
+
+const Container = styled.div<IContainerSelect>`
+  ${BoxStyle};
+  ${picolo};
+  cursor: pointer;
+  padding-left: ${({ theme }) => theme.sizes.padding.lg};
+  padding-right: ${({ theme }) => theme.sizes.padding.lg};
+  padding-top: ${({ theme }) => theme.sizes.padding.md};
+  padding-bottom: ${({ theme }) => theme.sizes.padding.md};
+  margin-right: ${({ theme }) => theme.sizes.margin.md};
+  ${({ isSelected, theme }) => isSelected && selectedStyle(theme)}
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.colors.success};
+  }
+`;
