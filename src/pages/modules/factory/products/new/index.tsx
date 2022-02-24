@@ -26,10 +26,7 @@ const New = () => {
       <Title>Add new product</Title>
       <Container>
         <Stepper steps={newProductStepper} onStep={onStep} />
-        <ProductC>
-          {onStep === 1 && <SelectCategory />}
-          {onStep === 2 && <ProductDescription />}
-        </ProductC>
+        <ProductC>{onStep === 1 && <ProductDescription />}</ProductC>
         <FooterComponent
           id={findCurrentStep?.id || 0}
           key={findCurrentStep?.id || 0}

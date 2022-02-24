@@ -13,6 +13,15 @@ export const GET_PRODUCTS = gql`
   }
 `;
 
+export const GET_CATEGORIES = gql`
+  query {
+    categories {
+      id
+      name
+    }
+  }
+`;
+
 /* MUTATION */
 export const CREATE_PRODUCT = gql`
   mutation CreateProduct($input: CreateProductInput!) {
@@ -22,6 +31,15 @@ export const CREATE_PRODUCT = gql`
         id
         name
       }
+    }
+  }
+`;
+
+export const CREATE_CATEGORY = gql`
+  mutation CreateCategory($input: CreateCategoryInput!) {
+    createCategory(input: $input) {
+      id
+      name
     }
   }
 `;

@@ -1,29 +1,50 @@
+import React, { useEffect, useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
 import { InsertPopup, SelectFromMap } from "components/elements";
 import { Button } from "components/inputs";
-import React, { useState } from "react";
+import { CREATE_CATEGORY, GET_CATEGORIES } from "modules/api";
 import styled from "styled-components";
-import { SelectOption } from "types";
+import { ICategory } from "types";
 
 interface SelectCategoryProps {}
 
 export const SelectCategory: React.FC<SelectCategoryProps> = ({}) => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [isInsertPopup, setIsInsertPopup] = useState<boolean>(false);
+  const [categories, setCategories] = useState<ICategory[]>([]);
 
-  const mock: SelectOption[] = [
-    { id: 0, value: "ok" },
-    { id: 1, value: "ok2" },
-  ];
+  const { data } = useQuery(GET_CATEGORIES);
+  const [createCategory] = useMutation(CREATE_CATEGORY);
 
-  const handleCreateCategory = (value: string) => {
+  const handleCreateCategory = async (value: string) => {
     setIsInsertPopup(false);
+    const response = await createCategory({
+      variables: { input: { name: value } },
+    });
+    if (response) {
+      const { createCategory } = response.data;
+      setCategories(createCategory);
+    }
+    console.log(response);
   };
+
+  useEffect(() => {
+    if (!data) return;
+    const { categories } = data;
+    const changeCategories = categories.map((c: ICategory) => {
+      return {
+        id: c.id,
+        value: c.name,
+      };
+    });
+    setCategories(changeCategories);
+  }, [data]);
 
   return (
     <>
       <Container>
         <Header>
-          {mock.map((category) => {
+          {categories.map((category) => {
             const isSelected = category.id === selectedId;
             return (
               <SelectFromMap

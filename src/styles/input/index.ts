@@ -6,6 +6,7 @@ export const defaultInputStyle = css`
   border: 2px solid ${({ theme }) => theme.colors.quinary};
   border-radius: ${({ theme }) => theme.borders.xs};
   outline: none;
+  font-size: 0.8rem;
   &:focus {
     border: 2px solid ${({ theme }) => theme.colors.success};
   }

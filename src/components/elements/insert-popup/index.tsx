@@ -58,10 +58,7 @@ const Content = styled.div`
   border-radius: ${({ theme }) => theme.borders.sm};
   position: absolute;
   background-color: white;
-  padding-left: ${({ theme }) => theme.sizes.padding.xxl};
-  padding-right: ${({ theme }) => theme.sizes.padding.xxl};
-  padding-top: ${({ theme }) => theme.sizes.padding.xl};
-  padding-bottom: ${({ theme }) => theme.sizes.padding.xl};
+  padding: ${({ theme }) => theme.sizes.padding.xl};
 `;
 
 const Layer = styled.div`

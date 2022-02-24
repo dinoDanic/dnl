@@ -1,4 +1,7 @@
 export interface SelectOption {
-  value: string;
-  id: number;
+  name: string;
+  id: number | null;
+}
+export interface IButton {
+  width: string | undefined;
 }

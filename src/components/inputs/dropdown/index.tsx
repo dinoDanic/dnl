@@ -1,75 +1,114 @@
+import { Label } from "components/ui";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { defaultInputStyle } from "styles/input";
 import { SelectOption } from "types";
+import { Button } from "..";
 
 interface Props {
   options: SelectOption[];
+  label: string;
   initialValue?: string;
   onChange: (option: SelectOption) => void;
+  placeholder: string;
+  onButtonClick?: () => void;
 }
 
 export const Dropdown: React.FC<Props> = ({
   options,
   initialValue,
   onChange,
+  label,
+  placeholder = "Select",
+  onButtonClick,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [selectedValue, setSelectedValue] = useState(initialValue || "");
 
-  const handleSelect = (value: string) => {
-    setSelectedValue(value);
+  const handleSelect = (name: string) => {
+    setSelectedValue(name);
     setIsActive(false);
-    onChange(options.find((o) => o.value === value)!);
+    onChange(options.find((o) => o.name === name)!);
   };
 
   return (
-    <Select>
-      <Header>
-        <SelectWindow onClick={() => setIsActive(true)}>
-          {selectedValue ? selectedValue : "Select"}
-        </SelectWindow>
-      </Header>
-      {isActive && (
-        <SelectList>
-          {options.map((option) => {
-            return (
-              <SelectItem
-                onClick={() => handleSelect(option.value)}
-                key={option.id}
-              >
-                {option.value}
-              </SelectItem>
-            );
-          })}
-        </SelectList>
-      )}
-    </Select>
+    <>
+      <Select>
+        <Label>{label}</Label>
+        <Header>
+          <SelectWindow onClick={() => setIsActive(true)}>
+            {selectedValue ? (
+              selectedValue
+            ) : (
+              <Placeholder>{placeholder}</Placeholder>
+            )}
+          </SelectWindow>
+        </Header>
+        {isActive && (
+          <SelectList>
+            {options?.map((option) => {
+              return (
+                <SelectItem
+                  onClick={() => handleSelect(option.name)}
+                  key={option.id}
+                >
+                  <SelectName>{option.name}</SelectName>
+                </SelectItem>
+              );
+            })}
+            {onButtonClick && (
+              <CreateNew>
+                <Button onClick={onButtonClick} width="100%">
+                  Create new
+                </Button>
+              </CreateNew>
+            )}
+          </SelectList>
+        )}
+      </Select>
+    </>
   );
 };
 
 const Select = styled.div`
-  max-width: 159px;
   position: relative;
 `;
 
 const Header = styled.div``;
 
 const SelectWindow = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.quinaryDark};
-  padding: 6px;
-  display: flex;
-  align-items: center;
+  ${defaultInputStyle}
+  cursor: pointer;
 `;
 
 const Text = styled.div``;
 
 const SelectList = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.quinaryDark};
+  ${defaultInputStyle}
+  background-color: ${({ theme }) => theme.colors.light};
   position: absolute;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.light};
-  top: 30px;
+  top: 72px;
   padding: 10px;
+  max-height: 220px;
+  overflow-y: auto;
 `;
 
 const SelectItem = styled.div``;
+
+const Placeholder = styled.div`
+  color: ${({ theme }) => theme.colors.quinaryDark};
+`;
+
+const SelectName = styled.div`
+  padding: ${({ theme }) => theme.sizes.padding.md};
+  cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primaryLight};
+    border-radius: ${({ theme }) => theme.borders.xs};
+  }
+`;
+
+const CreateNew = styled.div`
+  margin-top: ${({ theme }) => theme.sizes.margin.md};
+`;
