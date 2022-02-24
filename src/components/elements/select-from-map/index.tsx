@@ -7,7 +7,7 @@ import { SelectOption } from "types";
 interface Props {
   option: SelectOption;
   isSelected: boolean;
-  onClick: (id: number) => void;
+  onClick: (id: number | null) => void;
 }
 
 interface IContainerSelect {
@@ -21,7 +21,7 @@ export const SelectFromMap: React.FC<Props> = ({
 }) => {
   return (
     <Container isSelected={isSelected} onClick={() => onClick(option.id)}>
-      {option.value}
+      {option.name}
     </Container>
   );
 };
