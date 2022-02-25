@@ -11,8 +11,8 @@ export interface colorsI {
 
 export const colors: colorsI = {
   light: "#fff",
-  primary: "#43d8ff",
-  primaryLight: "#f0fcff",
+  primary: "#592b86",
+  primaryLight: "#f7f0ff",
   success: "#85e7b3",
   successLight: "#f0fff7",
   quinary: "#F3F4F6",

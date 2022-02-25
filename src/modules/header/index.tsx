@@ -13,4 +13,5 @@ export const Header: React.FC = () => {
 
 const Container = styled.div`
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
