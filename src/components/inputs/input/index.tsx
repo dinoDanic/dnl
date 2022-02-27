@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 import styled from "styled-components";
 import { defaultInputStyle } from "styles/input";
 import { BsFillCheckSquareFill } from "react-icons/bs";
@@ -8,12 +8,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export const Input: React.FC<InputProps> = ({ label, required, ...other }) => {
+export const Input: React.FC<InputProps> = ({ label, ...other }) => {
   return (
     <InputC>
       {label && <Label>{label}</Label>}
       <InputStyle {...other} />
-      {required && <BsFillCheckSquareFillStyled />}
     </InputC>
   );
 };

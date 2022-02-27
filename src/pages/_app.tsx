@@ -7,10 +7,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import GlobalStyle from "styles/global";
 import { AppContainer } from "components/pages";
 
-console.log(process.env.NEXT_PUBLIC_API_URL);
-
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_API_URL,
+  uri: process.env.NEXT_PUBLIC_API_URL_LOCAL,
   cache: new InMemoryCache(),
 });
 

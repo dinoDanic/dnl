@@ -45,25 +45,28 @@ export const Dropdown: React.FC<Props> = ({
           </SelectWindow>
         </Header>
         {isActive && (
-          <SelectList>
-            {options?.map((option) => {
-              return (
-                <SelectItem
-                  onClick={() => handleSelect(option.name)}
-                  key={option.id}
-                >
-                  <SelectName>{option.name}</SelectName>
-                </SelectItem>
-              );
-            })}
-            {onButtonClick && (
-              <CreateNew>
-                <Button onClick={onButtonClick} width="100%">
-                  Create new
-                </Button>
-              </CreateNew>
-            )}
-          </SelectList>
+          <>
+            <Layer onClick={() => setIsActive(false)} />
+            <SelectList>
+              {options?.map((option) => {
+                return (
+                  <SelectItem
+                    onClick={() => handleSelect(option.name)}
+                    key={option.id}
+                  >
+                    <SelectName>{option.name}</SelectName>
+                  </SelectItem>
+                );
+              })}
+              {onButtonClick && (
+                <CreateNew>
+                  <Button type="button" onClick={onButtonClick} width="100%">
+                    Create new
+                  </Button>
+                </CreateNew>
+              )}
+            </SelectList>
+          </>
         )}
       </Select>
     </>
@@ -111,4 +114,12 @@ const SelectName = styled.div`
 
 const CreateNew = styled.div`
   margin-top: ${({ theme }) => theme.sizes.margin.md};
+`;
+
+const Layer = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 `;

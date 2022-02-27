@@ -1,2 +1,2 @@
 export * from "./select-category";
-export * from "./product-description";
+export * from "./crate-product";

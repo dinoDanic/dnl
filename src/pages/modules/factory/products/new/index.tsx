@@ -1,44 +1,28 @@
-import { FooterComponent, Stepper } from "components/elements";
+import { useMutation } from "@apollo/client";
+import { FooterComponent, Form, Stepper } from "components/elements";
 import { Button } from "components/inputs";
-import { ProductDescription, SelectCategory } from "components/pages";
+import { CreateProduct, SelectCategory } from "components/pages";
 import { BoxStyle, Title } from "components/ui";
+import { CREATE_PRODUCT } from "modules/api";
 import { useState } from "react";
 import { newProductStepper, productsFooterSteps } from "registration";
 import styled from "styled-components";
+import { Product } from "types";
 
 const New = () => {
-  const [onStep, setOnStep] = useState(1);
-  const findCurrentStep = productsFooterSteps.find((s) => s.step == onStep);
-  const maxStep = productsFooterSteps.length;
-
-  const handlePrevStep = () => {
-    setOnStep(onStep !== 1 ? onStep - 1 : onStep);
-  };
-
-  const handleNextStep = () => {
-    setOnStep(onStep + 1);
-  };
-
-  const handleSave = () => {};
-
   return (
     <>
       <Title>Add new product</Title>
       <Container>
-        <Stepper steps={newProductStepper} onStep={onStep} />
-        <ProductC>{onStep === 1 && <ProductDescription />}</ProductC>
+        <Stepper steps={newProductStepper} onStep={1} />
+        <ProductC>
+          <CreateProduct />
+        </ProductC>
         <FooterComponent
-          id={findCurrentStep?.id || 0}
-          key={findCurrentStep?.id || 0}
-          step={findCurrentStep?.step || 0}
-          description={findCurrentStep?.description || "no description"}
-        >
-          {onStep !== 1 && <Button onClick={handlePrevStep}>Prev Step</Button>}
-          {onStep === maxStep && <Button onClick={handleSave}>Save</Button>}
-          {onStep < maxStep && (
-            <Button onClick={handleNextStep}>Next Step</Button>
-          )}
-        </FooterComponent>
+          id={1}
+          step={1}
+          description={productsFooterSteps[0].description}
+        />
       </Container>
     </>
   );

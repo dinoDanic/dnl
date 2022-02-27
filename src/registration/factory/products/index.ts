@@ -9,10 +9,8 @@ export const productsModules: ModuleType[] = [
 
 export const productsFooterSteps: FooterComponentProps[] = [
   { id: 0, step: 1, description: "Choose a Product" },
-  { id: 1, step: 2, description: "Select Pricing and Images" },
 ];
 
 export const newProductStepper: StepperType[] = [
   { id: 0, step: 1, name: "Product description" },
-  { id: 1, step: 2, name: "Pricing and images" },
 ];

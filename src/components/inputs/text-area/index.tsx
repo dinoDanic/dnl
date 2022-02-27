@@ -1,20 +1,22 @@
 import { Label } from "components/ui";
-import React from "react";
+import React, { TextareaHTMLAttributes } from "react";
 import styled from "styled-components";
 import { defaultInputStyle } from "styles/input";
 
-interface Props {
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
 }
 
-export const Textarea: React.FC<Props> = ({ label }) => {
+export const Textarea: React.FC<Props> = ({ label, ...other }) => {
   return (
-    <>
+    <Container>
       {label && <Label>{label}</Label>}
-      <TextareaStyle placeholder="Product descirption" />
-    </>
+      <TextareaStyle placeholder="Product descirption" {...other} />
+    </Container>
   );
 };
+
+const Container = styled.div``;
 
 const TextareaStyle = styled.textarea`
   ${defaultInputStyle}
