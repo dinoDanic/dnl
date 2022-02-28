@@ -1,36 +1,33 @@
 import { useMutation } from "@apollo/client";
 import { Form } from "components/elements";
 import { Button, Input } from "components/inputs";
-import { CREATE_USER } from "modules/api";
+import { SIGNIN_USER } from "modules/api";
 import React, { useState } from "react";
 
-type Props = {};
-
-const Register = (props: Props) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [createUser] = useMutation(CREATE_USER, {
+  const [signinUser] = useMutation(SIGNIN_USER, {
     variables: {
       input: {
-        name: "Dino",
-        authProvider: {
-          credentials: {
-            email,
-            password,
-          },
+        credentials: {
+          email,
+          password,
         },
       },
     },
   });
 
-  const register = async (e: React.FormEvent) => {
+  const login = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await createUser();
+    const response = await signinUser();
     console.log(response);
+    localStorage.setItem("token", response.data?.signinUser.token);
   };
+
   return (
-    <Form onSubmit={register}>
+    <Form onSubmit={login}>
       <Input label="Email" onChange={(e) => setEmail(e.target.value)} />
       <Input label="Password" onChange={(e) => setPassword(e.target.value)} />
       <Button>Submit</Button>
@@ -38,4 +35,4 @@ const Register = (props: Props) => {
   );
 };
 
-export default Register;
+export default Login;
