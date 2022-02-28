@@ -8,7 +8,7 @@ import GlobalStyle from "styles/global";
 import { AppContainer } from "components/pages";
 
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_API_URL_LOCAL,
+  uri: process.env.NEXT_PUBLIC_API_URL,
   cache: new InMemoryCache(),
 });
 
