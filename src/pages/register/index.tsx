@@ -13,13 +13,8 @@ const Register = (props: Props) => {
   const [createUser] = useMutation(CREATE_USER, {
     variables: {
       input: {
-        name: "Dino",
-        authProvider: {
-          credentials: {
-            email,
-            password,
-          },
-        },
+        email,
+        password,
       },
     },
   });

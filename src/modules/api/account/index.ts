@@ -6,15 +6,21 @@ export const CREATE_USER = gql`
     createUser(input: $input) {
       email
       id
-      name
     }
   }
 `;
 
-export const SIGNIN_USER = gql`
-  mutation SigninUser($input: SignInUserInput!) {
-    signinUser(input: $input) {
-      token
-    }
+/* QUERYS */
+
+export const LOGIN_USER = gql`
+  query login($email: String!, $password: String!) {
+    login(email: $email, password: $password)
+  }
+`;
+
+export const CURRENT_USER = gql`
+  query currentUser {
+    id
+    email
   }
 `;

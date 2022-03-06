@@ -12,7 +12,9 @@ import {
 import GlobalStyle from "styles/global";
 import { setContext } from "@apollo/client/link/context";
 import { AppContainer } from "components/pages";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppSelector } from "hooks/redux-hooks";
+import { userSelector } from "redux/user";
 
 const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_API_URL,
@@ -34,6 +36,12 @@ const client = new ApolloClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [user, setUser] = useState(null);
+  useEffect(() => {}, []);
+
+  // if (pageProps.protected && !user) {
+  //   return "loading...";
+  // }
   return (
     <>
       <Provider store={store}>

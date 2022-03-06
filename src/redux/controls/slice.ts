@@ -1,23 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ControlsState {
-  value: number;
-}
+interface ControlsState {}
 
-const initialState: ControlsState = {
-  value: 0,
-};
+const initialState: ControlsState = {};
 
 export const countrolsSlice = createSlice({
   name: "controls",
   initialState,
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-  },
+  reducers: {},
 });
 
-export const { increment } = countrolsSlice.actions;
+export const {} = countrolsSlice.actions;
 
 export default countrolsSlice.reducer;
