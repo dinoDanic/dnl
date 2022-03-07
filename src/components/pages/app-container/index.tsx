@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { CURRENT_USER } from "modules/api";
 import { Header } from "modules/header";
 import { device, size } from "styles/theme/screenSizes";
-import { UserType } from "types";
 import { routes } from "modules/routes";
 import { setUser } from "redux/user";
 

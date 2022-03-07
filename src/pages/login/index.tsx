@@ -23,7 +23,6 @@ const Login = () => {
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
     const response = await signinUser();
-    console.log(response);
     const { login } = response.data;
     if (login) {
       localStorage.setItem("token", response.data?.login);

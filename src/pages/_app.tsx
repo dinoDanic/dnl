@@ -15,7 +15,7 @@ import { AppContainer } from "components/pages";
 import { useEffect, useState } from "react";
 
 const httpLink = createHttpLink({
-  uri: process.env.NEXT_PUBLIC_API_URL,
+  uri: process.env.NEXT_PUBLIC_API_URL_LOCAL,
 });
 
 const authLink = setContext((_, { headers }) => {

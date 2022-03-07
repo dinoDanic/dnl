@@ -3,6 +3,7 @@ import { UserType } from "types";
 
 const initialState: UserType = {
   email: null,
+  organizationId: null,
 };
 
 export const userSlice = createSlice({
@@ -12,6 +13,7 @@ export const userSlice = createSlice({
     setUser(state, action) {
       console.log(state, action);
       state.email = action.payload.email;
+      state.organizationId = action.payload.organizationId;
     },
   },
 });
