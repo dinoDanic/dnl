@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useAppDispatch } from "hooks/redux-hooks";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CURRENT_USER } from "modules/api";
 import { Header } from "modules/header";
@@ -12,18 +12,16 @@ import { setUser } from "redux/user";
 
 type AppContainerProps = {
   children: React.ReactNode;
-  protectedRoute: boolean;
+  pageProps: any;
 };
 
 export const AppContainer: React.FC<AppContainerProps> = ({
   children,
-  protectedRoute,
+  pageProps,
 }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const [userLocal, setUserLocal] = useState<UserType>({
-    email: null,
-  });
+  const [gotUser, setGotUser] = useState(false);
 
   useQuery(CURRENT_USER, {
     onCompleted: (data) => {
@@ -31,15 +29,17 @@ export const AppContainer: React.FC<AppContainerProps> = ({
       const { currentUser } = data;
       if (currentUser === null) {
         router.push(routes.login);
+        setGotUser(false);
       } else {
-        setUserLocal({ email: currentUser.email });
+        setGotUser(true);
         dispatch(setUser(currentUser));
       }
     },
+    onError: (err) => console.log(err),
   });
 
-  if (protectedRoute && !userLocal.email) {
-    return <>loading...</>;
+  if (pageProps.protected && !gotUser) {
+    return <>not auth</>;
   }
 
   return (

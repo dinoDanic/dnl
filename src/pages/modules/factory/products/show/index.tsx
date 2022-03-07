@@ -26,4 +26,12 @@ const Show = () => {
   );
 };
 
+export function getStaticProps() {
+  return {
+    props: {
+      protected: true,
+    },
+  };
+}
+
 export default Show;

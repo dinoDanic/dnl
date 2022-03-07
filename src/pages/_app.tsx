@@ -12,7 +12,7 @@ import {
 import GlobalStyle from "styles/global";
 import { setContext } from "@apollo/client/link/context";
 import { AppContainer } from "components/pages";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_API_URL,
@@ -34,15 +34,13 @@ const client = new ApolloClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [protectedRoute] = useState(pageProps.protected);
-
   return (
     <>
       <Provider store={store}>
         <ApolloProvider client={client}>
           <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
-            <AppContainer protectedRoute={protectedRoute}>
+            <AppContainer pageProps={pageProps}>
               <Component {...pageProps} />
             </AppContainer>
           </ThemeProvider>

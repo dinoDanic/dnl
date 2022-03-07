@@ -24,7 +24,6 @@ const Login = () => {
     e.preventDefault();
     const response = await signinUser();
     console.log(response);
-
     const { login } = response.data;
     if (login) {
       localStorage.setItem("token", response.data?.login);
@@ -43,5 +42,13 @@ const Login = () => {
     </Form>
   );
 };
+
+export function getStaticProps() {
+  return {
+    props: {
+      protected: false,
+    },
+  };
+}
 
 export default Login;

@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
   li {
     list-style: none;
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
   }
   textarea { 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
 `;
 export default GlobalStyle;

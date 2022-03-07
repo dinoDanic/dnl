@@ -5,4 +5,12 @@ const Modules = () => {
   return <RenderModulesList moduleList={mainModules} />;
 };
 
+export function getStaticProps() {
+  return {
+    props: {
+      protected: true,
+    },
+  };
+}
+
 export default Modules;

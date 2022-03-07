@@ -5,7 +5,7 @@ import TopBar from "./top-bar/TopBar";
 export const Header: React.FC = () => {
   return (
     <Container>
-      <TopBar />
+      {/* <TopBar /> */}
       <MenuBar />
     </Container>
   );

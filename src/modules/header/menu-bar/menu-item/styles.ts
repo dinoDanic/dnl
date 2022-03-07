@@ -6,8 +6,11 @@ interface LiProps {
 }
 
 const liDefaulStyle = (theme: DefaultTheme) => `
-  padding: ${theme.sizes.padding.md};
-  margin: ${theme.sizes.margin.sm};
+  padding-left: ${theme.sizes.padding.md};
+  padding-right: ${theme.sizes.padding.md};
+  padding-top: ${theme.sizes.padding.sm};
+  padding-bottom: ${theme.sizes.padding.sm};
+  margin-right: ${theme.sizes.margin.sm};
   border-radius: ${theme.borders.sm};
   transition: 0.2s ease-out;
   cursor: pointer;
@@ -28,7 +31,7 @@ const activeStyle = css`
 
 export const Li = styled.li<LiProps>`
   ${({ theme }) => liDefaulStyle(theme)};
-  ${picoloLight};
+  /* ${picoloLight}; */
   color: white;
   ${({ active }) => active && activeStyle};
 `;

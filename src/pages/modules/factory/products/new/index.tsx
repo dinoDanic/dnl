@@ -38,4 +38,12 @@ const ProductC = styled.div`
   border-radius: 0;
 `;
 
+export function getStaticProps() {
+  return {
+    props: {
+      protected: true,
+    },
+  };
+}
+
 export default New;
