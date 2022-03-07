@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Button, Input } from "components/inputs";
 import { LOGIN_USER } from "modules/api";
 import { routes } from "modules/routes";
+import Link from "next/link";
 
 const Login = () => {
   const router = useRouter();
@@ -22,6 +23,8 @@ const Login = () => {
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
     const response = await signinUser();
+    console.log(response);
+
     const { login } = response.data;
     if (login) {
       localStorage.setItem("token", response.data?.login);
@@ -36,6 +39,7 @@ const Login = () => {
       <Input label="Email" onChange={(e) => setEmail(e.target.value)} />
       <Input label="Password" onChange={(e) => setPassword(e.target.value)} />
       <Button>Submit</Button>
+      <Link href={routes.register}>Create account</Link>
     </Form>
   );
 };

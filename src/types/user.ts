@@ -1,5 +1,3 @@
-export interface IUser {
-  name: string | null;
+export type UserType = {
   email: string | null;
-  role: "admin" | "user" | null;
-}
+};

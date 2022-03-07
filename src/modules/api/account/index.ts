@@ -19,8 +19,9 @@ export const LOGIN_USER = gql`
 `;
 
 export const CURRENT_USER = gql`
-  query currentUser {
-    id
-    email
+  query {
+    currentUser {
+      email
+    }
   }
 `;
