@@ -3,4 +3,5 @@ export const routes = {
   dashboard: "/dashboard",
   login: "/login",
   register: "/register",
+  createJoinOrganization: "/organization/new-join",
 };

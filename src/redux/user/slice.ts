@@ -10,7 +10,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser(state, action) {
+    setUserData(state, action) {
       console.log(state, action);
       state.email = action.payload.email;
       state.organizationId = action.payload.organizationId;
@@ -18,6 +18,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUserData } = userSlice.actions;
 
 export default userSlice.reducer;

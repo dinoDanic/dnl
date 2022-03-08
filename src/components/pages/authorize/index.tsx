@@ -1,55 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useAppDispatch } from "hooks/redux-hooks";
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CURRENT_USER } from "modules/api";
 import { Header } from "modules/header";
 import { device, size } from "styles/theme/screenSizes";
 import { routes } from "modules/routes";
-import { setUser } from "redux/user";
+import { setUserData } from "redux/user";
+import { UserType } from "types";
 
-type AppContainerProps = {
+type AuthorizeProps = {
   children: React.ReactNode;
   pageProps: any;
 };
 
-export const AppContainer: React.FC<AppContainerProps> = ({
+export const Authorize: React.FC<AuthorizeProps> = ({
   children,
   pageProps,
 }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const [gotUser, setGotUser] = useState(false);
 
-  useQuery(CURRENT_USER, {
+  const [user, setUser] = useState<UserType>();
+
+  const { loading } = useQuery(CURRENT_USER, {
     onCompleted: (data) => {
       console.log(data);
       const { currentUser } = data;
       if (currentUser === null) {
         router.push(routes.login);
-        setGotUser(false);
+      } else if (currentUser.organizationId === null) {
+        router.push(routes.createJoinOrganization);
       } else {
-        setGotUser(true);
-        dispatch(setUser(currentUser));
+        dispatch(setUserData(currentUser));
+        setUser(currentUser);
       }
     },
     onError: (err) => console.log(err),
   });
 
-  if (pageProps.protected && !gotUser) {
-    return <>not auth</>;
+  if (pageProps.protected && loading) {
+    return <>loading...</>;
+  }
+  if (!pageProps.protected && !user?.organizationId) {
+    return <AppChildren>{children}</AppChildren>;
   }
 
   return (
-    <AppContainerC>
+    <AuthorizeC>
       <Header />
       <AppChildren>{children}</AppChildren>
-    </AppContainerC>
+    </AuthorizeC>
   );
 };
 
-const AppContainerC = styled.div`
+const AuthorizeC = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;

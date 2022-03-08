@@ -11,7 +11,7 @@ import {
 } from "@apollo/client";
 import GlobalStyle from "styles/global";
 import { setContext } from "@apollo/client/link/context";
-import { AppContainer } from "components/pages";
+import { Authorize } from "components/pages";
 import { useEffect, useState } from "react";
 
 const httpLink = createHttpLink({
@@ -40,9 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ApolloProvider client={client}>
           <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
-            <AppContainer pageProps={pageProps}>
+            <Authorize pageProps={pageProps}>
               <Component {...pageProps} />
-            </AppContainer>
+            </Authorize>
           </ThemeProvider>
         </ApolloProvider>
       </Provider>

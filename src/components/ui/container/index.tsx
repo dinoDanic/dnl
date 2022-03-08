@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 interface Props {
-  children: React.ReactChild;
+  children: JSX.Element | JSX.Element[];
 }
 
 export const Container: React.FC<Props> = ({ children }) => {

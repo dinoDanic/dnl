@@ -29,8 +29,9 @@ export const Flex: React.FC<Props> = ({
 
 const Container = styled.div<FlexProps>`
   display: flex;
-  justify-content: ${({ justifyContent }) => justifyContent};
+  justify-content: ${({ justifyContent }) =>
+    justifyContent ? justifyContent : "space-between"};
   flex-direction: ${({ flexDirection }) => flexDirection};
   align-items: ${({ alignItems }) => alignItems};
-  height: 100%;
+  gap: 1.5rem;
 `;

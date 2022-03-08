@@ -15,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
   li {
     list-style: none;
   }
+  h2 {
+    margin-bottom: ${({ theme }) => theme.sizes.margin.lg};
+  }
   h3 {
     margin-bottom: ${({ theme }) => theme.sizes.margin.md};
   }
