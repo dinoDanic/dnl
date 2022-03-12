@@ -25,7 +25,6 @@ export const SelectCategory: React.FC<SelectCategoryProps> = ({}) => {
       const { createCategory } = response.data;
       setCategories(createCategory);
     }
-    console.log(response);
   };
 
   useEffect(() => {

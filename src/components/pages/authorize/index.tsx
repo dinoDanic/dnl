@@ -26,12 +26,9 @@ export const Authorize: React.FC<AuthorizeProps> = ({
 
   const { loading } = useQuery(CURRENT_USER, {
     onCompleted: (data) => {
-      console.log(data);
       const { currentUser } = data;
       if (currentUser === null) {
         router.push(routes.login);
-      } else if (currentUser.organizationId === null) {
-        router.push(routes.createJoinOrganization);
       } else {
         dispatch(setUserData(currentUser));
         setUser(currentUser);
@@ -40,16 +37,14 @@ export const Authorize: React.FC<AuthorizeProps> = ({
     onError: (err) => console.log(err),
   });
 
-  if (pageProps.protected && loading) {
+  if (pageProps.protected && loading && !user) {
     return <>loading...</>;
   }
-  if (!pageProps.protected && !user?.organizationId) {
-    return <AppChildren>{children}</AppChildren>;
-  }
+  console.log(user?.organizationId);
 
   return (
     <AuthorizeC>
-      <Header />
+      {user?.organizationId && <Header />}
       <AppChildren>{children}</AppChildren>
     </AuthorizeC>
   );

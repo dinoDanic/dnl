@@ -12,7 +12,6 @@ import {
 import GlobalStyle from "styles/global";
 import { setContext } from "@apollo/client/link/context";
 import { Authorize } from "components/pages";
-import { useEffect, useState } from "react";
 
 const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_API_URL_LOCAL,

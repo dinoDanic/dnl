@@ -1,4 +1,3 @@
-export type UserType = null | {
-  email: string | null;
-  organizationId: string | null;
-};
+import { User } from "generated/graphql";
+
+export type UserType = null | User;
