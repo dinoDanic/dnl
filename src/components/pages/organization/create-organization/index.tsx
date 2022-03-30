@@ -9,21 +9,19 @@ import {
 import { CREATE_ORGANIZATION } from "modules/api";
 import React, { useState } from "react";
 
-/* TODO: CREATE USER WITH ORGANIZATION ID AND STUFF */
-
 export const CreateOrganization = () => {
   const [organization, setOrganization] = useState<CreateOrganizationInput>({
     name: "",
     oib: "",
   });
-  const [createOrganization] = useMutation<MutationCreateOrganizationArgs>(
-    CREATE_ORGANIZATION,
-    {
-      variables: {
-        input: organization,
-      },
-    }
-  );
+  const [createOrganization] = useMutation<
+    CreateOrganizationInput,
+    MutationCreateOrganizationArgs
+  >(CREATE_ORGANIZATION, {
+    variables: {
+      input: organization,
+    },
+  });
 
   const create = async (e: React.FormEvent) => {
     e.preventDefault();
